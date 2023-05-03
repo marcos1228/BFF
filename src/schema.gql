@@ -1,0 +1,99 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ProductDTOList {
+  id: String!
+  name: String!
+  price: String!
+  theamount: String!
+  category: String!
+  classification: String!
+}
+
+type Product {
+  id: String!
+  name: String!
+  price: String!
+  theamount: String!
+  category: String!
+  classification: String!
+}
+
+type OfferDTOList {
+  idProduct: String!
+  title: String!
+  dateStart: String!
+  dateEnd: String!
+  discount: String!
+}
+
+type Offer {
+  id: String!
+  idProduct: String!
+  title: String!
+  dateStart: String!
+  dateEnd: String!
+  discount: String!
+}
+
+type Query {
+  listProduct: [ProductDTOList!]!
+  product(_id: String!): String!
+
+  """Lista as ofertas"""
+  listOffer: [OfferDTOList!]!
+
+  """Buscar uma oferta pelo ID"""
+  findOneOffer(_id: String!): Offer!
+}
+
+type Mutation {
+  createProduct(createProductInput: CreateProductInput!): Product!
+  updateProduct(teste: UpdateProductInput!): Product!
+
+  """Deleta uma oferta"""
+  deleteProduct(_id: String!): String!
+
+  """Criar uma oferta"""
+  createOffer(createOfferInput: CreateOfferInput!): Offer!
+
+  """Atualizar uma oferta"""
+  updateOffer(teste: UpdateOfferInput!): Offer!
+}
+
+input CreateProductInput {
+  name: String!
+  price: String!
+  theamount: String!
+  category: String!
+  classification: String!
+  description: String!
+}
+
+input UpdateProductInput {
+  name: String
+  price: String
+  theamount: String
+  category: String
+  classification: String
+  description: String
+  id: String!
+}
+
+input CreateOfferInput {
+  idProduct: String!
+  title: String!
+  dateStart: String!
+  dateEnd: String!
+  discount: String!
+}
+
+input UpdateOfferInput {
+  idProduct: String
+  title: String
+  dateStart: String
+  dateEnd: String
+  discount: String
+  id: String!
+}
